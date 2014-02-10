@@ -1,0 +1,233 @@
+
+/* ###################### OVERALL SETTINGS ###################### */
+BODY {
+  color            : #000000;
+}
+
+td,tr,p,div {
+  font-family      : Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 11px;
+  color            : #000000;
+  
+}
+
+ul {
+  margin           : 0px 0px 0px 0px;
+}
+
+
+
+hr {
+  background       : #C0C0C0;
+  height           : 1px;
+  width            : 100%;
+}
+
+table.searchintro {
+  background-color: #FFFFFF;
+  border: solid 1px #777777;
+}
+
+/* ###################### LINKS ###################### */
+a:link, a:visited {
+  font-size        : 11px;
+  color            : #7492AB;
+  text-decoration  : none;
+  font-family      : Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+}
+
+a:hover {
+  color            : #ADC1D2;
+  text-decoration  : none;
+}
+
+a.category:link, a.category:visited {
+  color            : #999999;
+  font-weight      : bold;
+}
+
+a.category:hover {
+  color            : #ADC1D2;
+}
+
+a.buttonbar:link, a.buttonbar:visited {
+  
+  color            : #FFFFFF;
+  font-weight      : bold;
+  font-size        : 10px;
+  text-transform   : uppercase;
+  text-align       : right;
+  text-indent      : 5px;	
+}
+
+a.buttonbar:hover {
+  color            : #ADC1D2;;
+  text-decoration  : bold;
+}
+
+/* ###################### MAIN MENU SETTINGS ###################### */
+
+.mainlevel {
+  font-family      : Verdana, Geneva, Arial, Helvetica, serif;
+  font-weight      : normal;
+  width            : 95%;
+  text-align       : right;
+  text-decoration  : none;
+  filter           : Alpha(opacity=0, finishopacity=100, style=1);
+  -moz-opacity     : 0.65;
+  letter-spacing   : 2px;
+  text-indent      : 5px;
+  padding          : 5px;
+  display          : block;
+  margin-top       : 2px;
+}
+
+a.mainlevel:link, a.mainlevel:visited {
+  border-top       : 1px solid #ADC1D2;
+  border-bottom    : 1px solid #ADC1D2;
+  background       : #FFFFFF;
+  color            : #808080;
+}
+a.mainlevel:hover {
+  border-top       : 1px solid #FFFFFF;
+  border-bottom    : 1px solid #FFFFFF;
+  background-color : #7492AB;
+  color            : #FFFFFF;
+}
+
+/* ###################### MODULE SETTINGS ###################### */
+table.moduletable {
+  width            : 100%;
+  margin-bottom    : 5px;
+}
+table.moduletable th {
+  font             : Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 11px;
+  font-weight      : bold;
+  color            : #00467A;
+  text-align       : left;
+  text-transform   : uppercase;
+  border-bottom    : none;
+  padding          : 1px;
+  background       : url("../images/fundalmeniu.jpg") repeat-x bottom;
+}
+
+.newsflash {
+  font-family      : Arial, Helvetica, sans-serif;
+  font-size        : 10px;
+  color            : #00467A;
+ text-transform   : uppercase;
+
+}
+
+
+.frameheader {
+  font             : Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 18px;
+  font-weight      : none;
+  color            : #ADC1D2;
+}
+
+.poll {
+  font-family      : Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 10px;
+  color            : #666666;
+  line-height      : 15px
+}
+
+/* ###################### FORMULAR SETTINGS ###################### */
+.button {
+  font-family      : Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+  font-style       : normal;
+  font-weight      : bold;
+  font-size        : 8px;
+  color            : #000000;
+  border           : 1px solid;
+}
+
+.inputbox {
+  font-family      : Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 8px;
+  font-weight      : bold;
+  color            : #000000;
+  background       : #FFFFFF;
+  border           : 1px solid;
+}
+
+/* ###################### CONTENT PAGE SETTINGS ###################### */
+.contentpane {
+  text-align       : justify;
+  padding-left     : 5px;
+  padding-right    : 5px;
+ 
+ 
+}
+
+.contentpaneopen {
+  text-align       : justify;
+  padding-left     : 5px;
+  padding-right    : 5px;
+  
+
+}
+
+.contentheading, .componentheading {
+  font-family      : Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 13px;
+  font-weight      : bold;
+  color            : #333333;
+  text-align       : left
+  border-bottom    : none;
+  padding          : 1px;
+background       : url("../images/fundalcontinut.jpg") repeat-x bottom;
+
+}
+
+.contentdescription {
+  font-family      : Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 11px;
+  color            : #333333;
+  text-align       : left;
+}
+
+.category {
+  color            : #999999;
+  font-family      : Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 11px;
+  font-weight      : bold;
+}
+
+/* ###################### SECTION LISTING SETTINGS ###################### */
+.sectiontableentry1 {
+  background-color : #DFE9F1;
+  border-bottom    : 1px solid #FFFFFF;
+}
+
+.sectiontableentry2 {
+  background-color : #B1D8E9;
+  border-bottom    : 1px solid #FFFFFF;
+}
+
+.sectiontableheader {
+  background-color : #DFE9F12;
+  color            : #FFFFFF;
+  height           : 20px;
+  font-weight      : bold;
+  border-bottom    : 1px solid #FFFFFF;
+}
+
+/* ###################### SMALL FONT SETTINGS ###################### */
+.small {
+  font-family      : Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 9px;
+  color            : #7492AB;
+  text-decoration  : none;
+  font-weight      : normal;
+}
+
+.smalldark {
+  font-family      : Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 9px;
+  color            : #000000;
+  font-weight      : normal;
+}

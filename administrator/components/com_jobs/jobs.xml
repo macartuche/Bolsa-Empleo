@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install type="component" version="1.5">
+	<name>jobs</name>
+	<creationDate>21/02/2010</creationDate>
+	<author>Ulas ALKAN - instantphp.com</author>
+	<authorEmail>info@instantphp.com</authorEmail>
+	<copyright>Copyright 2009 Ulas ALKAN on instantphp.com</copyright>
+	<authorUrl>www.instantphp.com</authorUrl>
+	<version>1.2</version>
+	<description>A professional job portal management component by instantphp.com</description>
+	<files></files>
+	<install>
+		<queries>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_applications` (
+  `id` int(11) NOT NULL auto_increment,
+  `cover_letter` text NOT NULL,
+  `job_id` int(11) NOT NULL,
+  `resume_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `application_date` datetime NOT NULL,
+  `update_date` datetime NOT NULL,
+  `comments` text NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `job_id` (`job_id`),
+  KEY `resume_id` (`resume_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+			</query>
+						<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_admin` (
+  `sid` varchar(30) NOT NULL,
+  `id` int(10) NOT NULL DEFAULT '0',
+  `table_name` varchar(128) NOT NULL,
+  `created` datetime NOT NULL,
+  UNIQUE KEY `sid` (`sid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+			</query>
+						<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_credits_pending` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `requested_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'when the user is requested to buy credit',
+  `payment_date` datetime NOT NULL COMMENT 'when the user made payment',
+  `inform_date` datetime NOT NULL COMMENT 'when the site admin is inform by the user after payment',
+  `payment_gross` float NOT NULL COMMENT 'money that has been recieved',
+  `credits` float NOT NULL COMMENT 'the amount of credits for this session',
+  `txn_id` varchar(100) NOT NULL,
+  `attribs` text NOT NULL COMMENT 'all variables that we recieved from this payment',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_categories` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `parent_id` int(11) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `alias` varchar(255) NOT NULL default '',
+  `text` mediumtext NOT NULL,
+  `meta_keywords` text NOT NULL,
+  `meta_description` text NOT NULL,
+  `published` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_companies` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL default '',
+  `alias` varchar(100) NOT NULL,
+  `logo` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL default '',
+  `country` int(11) NOT NULL,
+  `zipcode` varchar(10) NOT NULL default '',
+  `companyurl` varchar(255) NOT NULL default '',
+  `contactname` varchar(255) NOT NULL default '',
+  `contactphone` varchar(255) NOT NULL default '',
+  `contactemail` varchar(255) NOT NULL default '',
+  `meta_keywords` text NOT NULL,
+  `meta_description` text NOT NULL,
+  `memberid` varchar(255) NOT NULL default '',
+  `created` datetime NOT NULL default '0000-00-00 00:00:00',
+  `published` int(1) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_countries` (
+  `id` int(3) NOT NULL auto_increment,
+  `published` int(1) NOT NULL,
+  `title` varchar(150) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `title` (`title`),
+  KEY `published` (`published`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_cover_letters` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL,
+  `memberid` int(11) default NULL,
+  `cover_letter` text,
+  `published` int(1) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `memberid` (`memberid`),
+  KEY `title` (`title`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_credits` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL,
+  `credits` float NOT NULL,
+  `can_search_end` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_credits_buying_history` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL,
+  `payer_email` varchar(150) NOT NULL,
+  `payment_date` datetime NOT NULL default '0000-00-00 00:00:00',
+  `mc_currency` varchar(20) NOT NULL COMMENT 'currency',
+  `payment_gross` float NOT NULL COMMENT 'money that has been recieved',
+  `credits` float NOT NULL COMMENT 'the amount of credits for this session',
+  `verify_sign` varchar(100) NOT NULL,
+  `txn_id` varchar(100) NOT NULL,
+  `attribs` text NOT NULL COMMENT 'all variables that we recieved from this payment',
+  PRIMARY KEY  (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `payer_email` (`payer_email`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_credits_spending_history` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL,
+  `credits` float NOT NULL,
+  `action` varchar(5) NOT NULL,
+  `job_id` int(11) NOT NULL,
+  `old_date` datetime NOT NULL,
+  `new_date` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_email_history` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `email_subject` varchar(255) NOT NULL,
+  `application` int(11) NOT NULL,
+  `email_from` varchar(100) NOT NULL,
+  `email_to` varchar(100) NOT NULL,
+  `email_body` text NOT NULL,
+  `email_date` datetime NOT NULL,
+  `email_memberid` int(11) NOT NULL,
+  `email_to_memberid` int(11) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_email_templates` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  `memberid` int(11) NOT NULL,
+  `published` int(1) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `email_memberid` (`memberid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_resume_files2resumes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `file_id` int(11) NOT NULL,
+  `resume_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `file_id` (`file_id`),
+  KEY `resume_id` (`resume_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_resume_files` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `memberid` int(11) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `file_notes` varchar(255) NOT NULL,
+  `hits` int(11) NOT NULL DEFAULT '0',
+  `published` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `memberid` (`memberid`),
+  KEY `file_name` (`file_name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_resume_files2resumes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `file_id` int(11) NOT NULL,
+  `resume_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `file_id` (`file_id`),
+  KEY `resume_id` (`resume_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_jobs` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(100) NOT NULL,
+  `reference` varchar(50) NOT NULL,
+  `number_of_jobs` int(11) NOT NULL,
+  `job_type` int(1) NOT NULL,
+  `description` text NOT NULL,
+  `country` int(11) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `state` varchar(100) NOT NULL,
+  `qualifications` text NOT NULL,
+  `experience` int(2) NOT NULL,
+  `degree` int(2) NOT NULL,
+  `cat_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `salary` int(11) NOT NULL,
+  `show_salary` varchar(1) NOT NULL,
+  `created` datetime NOT NULL,
+  `publish_up` datetime NOT NULL,
+  `publish_down` datetime NOT NULL,
+  `meta_keywords` text NOT NULL,
+  `meta_description` text NOT NULL,
+  `hits` int(11) NOT NULL,
+  `hide_company_name` tinyint(1) NOT NULL DEFAULT '0',
+  `published` int(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cat_id` (`cat_id`),
+  KEY `company_id` (`company_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;			
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_resumes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `alias` varchar(255) NOT NULL,
+  `memberid` int(11) DEFAULT NULL,
+  `language` varchar(30) NOT NULL,
+  `created` datetime NOT NULL,
+  `update_date` datetime NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `home_phone` varchar(20) NOT NULL,
+  `work_phone` varchar(20) DEFAULT NULL,
+  `cell_phone` varchar(20) DEFAULT NULL,
+  `email_address` varchar(255) DEFAULT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(20) DEFAULT NULL,
+  `zip_code` varchar(20) DEFAULT NULL,
+  `school` varchar(255) DEFAULT NULL,
+  `school_city` varchar(255) DEFAULT NULL,
+  `school_state` varchar(255) DEFAULT NULL,
+  `school1` varchar(255) DEFAULT NULL,
+  `school_city1` varchar(255) DEFAULT NULL,
+  `school_state1` varchar(255) DEFAULT NULL,
+  `diploma_text1` varchar(255) DEFAULT NULL,
+  `study_area1` varchar(255) DEFAULT NULL,
+  `school2` varchar(255) DEFAULT NULL,
+  `school_city2` varchar(255) DEFAULT NULL,
+  `school_state2` varchar(255) DEFAULT NULL,
+  `diploma_text2` varchar(255) DEFAULT NULL,
+  `study_area2` varchar(255) DEFAULT NULL,
+  `school3` varchar(255) DEFAULT NULL,
+  `school_city3` varchar(255) DEFAULT NULL,
+  `school_state3` varchar(255) DEFAULT NULL,
+  `diploma_text3` varchar(255) DEFAULT NULL,
+  `study_area3` varchar(255) DEFAULT NULL,
+  `lang_1` varchar(100) NOT NULL,
+  `lang_1_reading` int(2) NOT NULL,
+  `lang_1_writing` int(2) NOT NULL,
+  `lang_1_understanding` int(2) NOT NULL,
+  `lang_1_where` varchar(255) NOT NULL,
+  `lang_2` varchar(200) NOT NULL,
+  `lang_2_reading` int(2) NOT NULL,
+  `lang_2_writing` int(2) NOT NULL,
+  `lang_2_understanding` int(2) NOT NULL,
+  `lang_2_where` varchar(255) NOT NULL,
+  `lang_3` varchar(100) NOT NULL,
+  `lang_3_reading` int(2) NOT NULL,
+  `lang_3_writing` int(2) NOT NULL,
+  `lang_3_understanding` int(2) NOT NULL,
+  `lang_3_where` varchar(255) NOT NULL,
+  `lang_4` varchar(100) NOT NULL,
+  `lang_4_reading` int(2) NOT NULL,
+  `lang_4_writing` int(2) NOT NULL,
+  `lang_4_understanding` int(2) NOT NULL,
+  `lang_4_where` varchar(255) NOT NULL,
+  `available_date` datetime DEFAULT NULL,
+  `desired_pay` int(11) DEFAULT NULL,
+  `experience` int(11) NOT NULL,
+  `employer` varchar(255) DEFAULT NULL,
+  `employer_city` varchar(255) DEFAULT NULL,
+  `employer_state` varchar(20) DEFAULT NULL,
+  `employer_phone` varchar(20) DEFAULT NULL,
+  `employer_pos` varchar(50) DEFAULT NULL,
+  `employer_from` varchar(20) DEFAULT NULL,
+  `employer_to` varchar(20) DEFAULT NULL,
+  `employer_pay` int(11) DEFAULT NULL,
+  `employer_sup` varchar(255) DEFAULT NULL,
+  `employer_dut` varchar(255) DEFAULT NULL,
+  `employer_leave` varchar(255) DEFAULT NULL,
+  `employer1` varchar(255) DEFAULT NULL,
+  `employer1_city` varchar(255) DEFAULT NULL,
+  `employer1_state` varchar(20) DEFAULT NULL,
+  `employer1_phone` varchar(20) DEFAULT NULL,
+  `employer1_pos` varchar(50) DEFAULT NULL,
+  `employer1_from` varchar(20) DEFAULT NULL,
+  `employer1_to` varchar(20) DEFAULT NULL,
+  `employer1_pay` int(11) DEFAULT NULL,
+  `employer1_sup` varchar(255) DEFAULT NULL,
+  `employer1_dut` varchar(255) DEFAULT NULL,
+  `employer1_leave` varchar(255) DEFAULT NULL,
+  `employer2` varchar(255) DEFAULT NULL,
+  `employer2_city` varchar(255) DEFAULT NULL,
+  `employer2_state` varchar(20) DEFAULT NULL,
+  `employer2_phone` varchar(20) DEFAULT NULL,
+  `employer2_pos` varchar(50) DEFAULT NULL,
+  `employer2_from` varchar(20) DEFAULT NULL,
+  `employer2_to` varchar(20) DEFAULT NULL,
+  `employer2_pay` int(11) DEFAULT NULL,
+  `employer2_sup` varchar(255) DEFAULT NULL,
+  `employer2_dut` varchar(255) DEFAULT NULL,
+  `employer2_leave` varchar(255) DEFAULT NULL,
+  `employer3` varchar(255) DEFAULT NULL,
+  `employer3_city` varchar(255) DEFAULT NULL,
+  `employer3_state` varchar(20) DEFAULT NULL,
+  `employer3_phone` varchar(20) DEFAULT NULL,
+  `employer3_pos` varchar(50) DEFAULT NULL,
+  `employer3_from` varchar(20) DEFAULT NULL,
+  `employer3_to` varchar(20) DEFAULT NULL,
+  `employer3_pay` int(11) DEFAULT NULL,
+  `employer3_sup` varchar(255) DEFAULT NULL,
+  `employer3_dut` varchar(255) DEFAULT NULL,
+  `employer3_leave` varchar(255) DEFAULT NULL,
+  `skills` text,
+  `ref1_name` varchar(255) DEFAULT NULL,
+  `ref1_address` varchar(255) DEFAULT NULL,
+  `ref1_telephone` varchar(20) DEFAULT NULL,
+  `ref1_relationship` varchar(20) DEFAULT NULL,
+  `ref1_years` varchar(10) DEFAULT NULL,
+  `ref2_name` varchar(255) DEFAULT NULL,
+  `ref2_address` varchar(255) DEFAULT NULL,
+  `ref2_telephone` varchar(20) DEFAULT NULL,
+  `ref2_relationship` varchar(20) DEFAULT NULL,
+  `ref2_years` varchar(10) DEFAULT NULL,
+  `ref3_name` varchar(255) DEFAULT NULL,
+  `ref3_address` varchar(255) DEFAULT NULL,
+  `ref3_telephone` varchar(20) DEFAULT NULL,
+  `ref3_relationship` varchar(20) DEFAULT NULL,
+  `ref3_years` varchar(10) DEFAULT NULL,
+  `ref4_name` varchar(255) DEFAULT NULL,
+  `ref4_address` varchar(255) DEFAULT NULL,
+  `ref4_telephone` varchar(20) DEFAULT NULL,
+  `ref4_relationship` varchar(20) DEFAULT NULL,
+  `ref4_years` varchar(10) DEFAULT NULL,
+  `text_resume` text,
+  `image` varchar(255) NOT NULL,
+  `hits` int(11) NOT NULL DEFAULT '0',
+  `published` int(2) NOT NULL,
+  `unavailability` mediumtext,
+  `lknjobs_canwork` mediumtext,
+  `job_type` varchar(1) DEFAULT NULL,
+  `lknjobs_currentlyworking` varchar(255) DEFAULT NULL,
+  `lknjobs_schooldiploma` varchar(255) DEFAULT NULL,
+  `lknjobs_schooldiplomauniversity` varchar(255) DEFAULT NULL,
+  `lknjobs_schooldiplomagrad` varchar(255) DEFAULT NULL,
+  `lknjobs_schooldiplomaother` varchar(255) DEFAULT NULL,
+  `lknjobs_available` mediumtext,
+  `lknjobs_dl` varchar(255) DEFAULT NULL,
+  `lknjobs_dlnumber` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `published` (`published`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_license` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `last_control` blob NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_resumes_banned_companies` (
+  `id` int(11) NOT NULL auto_increment,
+  `resume_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `resume_id` (`resume_id`),
+  KEY `company_id` (`company_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='banned companies to view a specific resume' ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_status` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL default '',
+  `published` int(1) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+			</query>
+			<query>
+CREATE TABLE IF NOT EXISTS `#__jobs_config` (
+  `name` varchar(255) NOT NULL,
+  `value` text NOT NULL,
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+			</query>
+			<query>
+INSERT IGNORE INTO `#__jobs_config` (`name`, `value`) VALUES
+('download_id', ''),
+('dateFormat', '%d-%B-%Y %H:%M:%S'),
+('recordPerPage', '20'),
+('languageFile', 'english'),
+('default_status', '3'),
+('company_activate', '1'),
+('job_seeker_activate', '1'),
+('show_tool_bar', '1'),
+('category_order', 'title ASC'),
+('make_jobs_national', '0'),
+('hide_company', '2'),
+('user_registration', '1'),
+('mailer', 'gmail'),
+('gmail_username', 'ulasalkan@gmail.com'),
+('gmail_password', 'trichnosis'),
+('credit_system_inform_me', '1'),
+('company_adding_inform_me', '1'),
+('inform_email', 'info@instantphp.com'),
+('job_publish_down_up_time_is_editable', '0'),
+('default_publish_down', '8'),
+('job_posting_redirect_payment_page', '0'),
+('logo_image_folder', '/images/stories/jobs/logos/'),
+('resume_image_folder', '/images/stories/jobs/cv_images/'),
+('allowedimages', 'jpeg,jpg,png,gif'),
+('uploadSizeLimit', '1024'),
+('image_resize_active', '1'),
+('image_watermark_text', 'instantphp.com'),
+('image_watermark_text_color', '#000000'),
+('image_watermark_text_background_color', '#FFFFFF'),
+('resume_image_watermark', '1'),
+('resume_image_width', '200'),
+('resume_image_height', '200'),
+('company_logo_watermark', '0'),
+('company_logo_width', '200'),
+('company_logo_height', '200'),
+('lknjobstemplate', 'default'),
+('templates_advice_title', 'SiteName.com Advices'),
+('templates_advice', 'For your privacy and protection, when applying to a job online:\r\nNever give your social security number to a prospective employer, provide credit card or bank account information, or perform any sort of monetary transaction.\r\n\r\nBy applying to a job using YourSite.Com you are agreeing to comply with and be subject to the YourSite.com Terms and Conditions for use of our website. To use our website, you must agree with the Terms and Conditions and both meet and comply with their provisions.'),
+('templates_footer', ''),
+('home_page_categories', '1'),
+('home_page_category_column', '2'),
+('home_page_category_job_count', '1'),
+('home_page_latest_jobs', '1'),
+('home_page_indeed', '0'),
+('home_page_latest_jobs_count', '10'),
+('home_page_simple_search_form', '1'),
+('home_page_new_to_lknjobs', '1'),
+('home_page_who_are_we', '1'),
+('home_page_ads', ''),
+('home_companies', 'random'),
+('home_page_company_count', '2'),
+('home_page_indeed_ad_css', ''),
+('home_page_indeed_ad_format', '300x250'),
+('home_page_indeed_jobroll_clientId', ''),
+('home_page_indeed_jobroll_ad_keywords', 'php developer'),
+('home_page_indeed_jobroll_ad_location', 'NY'),
+('home_page_indeed_jobroll_ad_country', 'US'),
+('home_page_indeed_jobroll_ad_channel', 't1'),
+('home_page_indeed_jobroll_color_background', 'FFFFFF'),
+('home_page_indeed_jobroll_color_border', 'AAAAAA'),
+('home_page_indeed_jobroll_color_text', '000000'),
+('home_page_indeed_jobroll_color_link', '0000CC'),
+('home_page_indeed_jobroll_color_accent', 'FF6600'),
+('home_page_indeed_jobroll_color_title', '000000'),
+('home_page_indeed_jobroll_color_jobtitle', '0000CC'),
+('home_page_indeed_jobroll_color_company', '000000'),
+('home_page_indeed_jobroll_color_source', '008800'),
+('home_page_indeed_jobroll_color_location', '666666'),
+('social_bookmarking_active', '1'),
+('social_bookmarking_button_type', 'local'),
+('social_bookmarking_addthis_id', ''),
+('social_bookmarking_addthis_button_url', 'http://s7.addthis.com/static/btn/lg-share-en.gif '),
+('thank_you_message', ''),
+('job_apply_new_resume_create', '1'),
+('credit_cost', '0.5'),
+('credit_system_active_for_job_seekers', '0'),
+('credit_system_for_job_seekers_adding_a_resume_cost', '1'),
+('credit_system_for_job_seekers_applying_a_job_cost', '0.1'),
+('credit_system_active', '1'),
+('credit_system_adding_a_job_cost', '4'),
+('credit_system_resume_search_one_day_cost', '0.1'),
+('credit_system_paypal_active', '1'),
+('paypal_email', 'ulasalkan@gmail.com'),
+('sandbox_email', 'ulasalkan@gmail.com'),
+('credit_system_paypal_curreny', 'USD'),
+('sandbox', '0'),
+('credit_system_googlecheckout_active', '1'),
+('credit_system_googlecheckout_merchant_id', ''),
+('credit_system_googlecheckout_merchant_key', ''),
+('credit_system_googlecheckout_currency', 'GBP'),
+('credit_system_googlecheckout_sandbox', '1'),
+('credit_system_bank_transfer_active', '1'),
+('credit_system_bank_transfer_inform_user', '1'),
+('rss_feeds_active', '1'),
+('rss_feeds_categories', '1'),
+('rss_feeds_company', '1'),
+('rss_feeds_country', '1'),
+('rss_feeds_count', '20'),
+('rss_feeds_limit_job_description', '300'),
+('rss_feeds_criteria_select_count', '2'),
+('rss_feeds_description', 'Jobs Rss Feeds'),
+('files_active', '1'),
+('files_folder', '/images/stories/jobs/files/'),
+('files_file_types', 'zip,rar,x-zip,pdf,txt,msword'),
+('files_image_types', 'jpeg,jpg,png,gif'),
+('files_size', '2048'),
+('files_own_count', '0'),
+('files_attach_count', '3'),
+('files_image_watermark_active', '0'),
+('worker_resume_count', '0'),
+('worker_prevent_to_delete_last_resume', '1'),
+('employer_inform_on_company_submission', '1'),
+('employer_inform_on_company_approve', '1'),
+('employer_approve_all_companies', '0'),
+('employer_company_count', '5'),
+('employer_inform_on_application', '1'),
+('lknJobsItemid', '');
+			</query>
+		</queries>
+	</install>
+	<installfile>install.jobs.php</installfile>
+	<uninstallfile>uninstall.jobs.php</uninstallfile>
+	<administration>
+		<menu>Jobs</menu>
+		<submenu>
+			<menu task="panel">Home</menu>
+			<menu task="list_jobs">List Jobs</menu>
+			<menu task="list_cover_letters">List Cover Letters</menu>
+			<menu task="list_categories">List Categories</menu>
+			<menu task="list_countries">List Countries</menu>
+			<menu task="list_companies">List Companies</menu>
+			<menu task="list_status">List Application Status</menu>
+			<menu task="list_resumes">List Resumes</menu>
+			<menu task="list_applications">List Applications</menu>
+			<menu task="list_email_templates">List Email Templates</menu>
+			<menu task="list_credit_history">List Credit History</menu>
+			<menu task="show_config">Configuration</menu>
+			<menu task="license">License</menu>
+		</submenu>
+		<files>
+			<filename>jobs.xml</filename>
+			
+			<filename>admin.zip</filename>
+			<filename>front.zip</filename>
+			<filename>lknlibrary.zip</filename>
+
+			
+		</files>
+	</administration>
+</install>

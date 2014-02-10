@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="user">
+	<name>lknjoomlajobsregister</name>
+	<author>Instant Php</author>
+	<authorEmail>info@instantphp.com</authorEmail>
+	<authorUrl>www.instantphp.com</authorUrl>
+	<copyright>Copyright (C) 2009 Instant Php</copyright>
+	<creationDate>14/12/2009</creationDate>
+	<copyright>(C) 2009 InstantPhp.com</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<version>1.1.1</version>
+	<description>This plugin helps you to register your users as job seeker from default joomla registration form. do not forget to read the related document on instantphp.com</description>
+	<files>
+		<filename plugin="lknjoomlajobsregister">lknjoomlajobsregister.php</filename>
+	</files>
+	<params>
+		<param name="default_resume_title" type="text" size="30" default="Default Resume" label="Default Resume Title" description="Enter title for the default resume like Default Resume or Default or etc." />
+		<param name="default_resume_status" type="list" default="0" label="Default Resume Status" description="Select the status of the dfeault resume. The default one is Unpublished">
+			<option value="1">Published</option>
+			<option value="0">Unpublished</option>
+		</param>
+		<param name="default_resume_language" type="text" size="30" default="English" label="Default Resume Language" description="Enter language for the resumes like English or French." />
+	</params>
+</install>

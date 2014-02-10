@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>JP Latest Twitter Update</name>
+	<author>Jerry Wijaya</author>
+	<creationDate>March 2009</creationDate>
+	<copyright>JoomlaPoetry.com</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>me@jerrywijaya.com</authorEmail>
+	<authorUrl>http://www.jerrywijaya.com</authorUrl>
+	<version>1.0.0</version>
+	<description>Show your latest Twitter update</description>
+	<files>
+		<filename module="mod_jp_latest_twitter_update">mod_jp_latest_twitter_update.php</filename>
+		<filename module="mod_jp_latest_twitter_update">twitter.css</filename>
+		<filename module="mod_jp_latest_twitter_update">twitterbg.png</filename>
+		<filename module="mod_jp_latest_twitter_update">index.html</filename>
+	</files>
+	<params>
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+		<param name="username" type="text" default="" label="Twitter Username" description="" />
+		<param name="limit" type="text" default="" label="Limit (in number)" description="" />
+	</params>
+</install>

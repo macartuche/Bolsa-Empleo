@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cbinstall version="1.0" type="plugin" group="user">
+	<name>Jobs Tab</name>
+	<author>Ulas ALKAN</author>
+	<creationDate>21/02/2010</creationDate>
+	<copyright>Copyright (C) 2009 All rights reserved.</copyright>
+	<license>http://www.instantphp.com</license>
+	<authorEmail>info@instantphp.com</authorEmail>
+	<authorUrl>www.instantphp.com</authorUrl>
+	<version>1.2.1</version>
+	<description>Displays latests (or random) jobs for com_jobs</description>
+	<files>
+		<filename plugin="cb.jobstab">cb.jobstab.php</filename>
+		<filename>plug.jobs.css</filename>
+		<filename>index.html</filename>
+		<filename>languages/english.php</filename>
+		<filename>languages/index.html</filename>
+
+	</files>
+	    <tabs>
+    	<tab name="Jobs" description="" class="getJobsTab" fields="0" position="cb_tabmain" displaytype="tab">
+			<params>
+          <param name="show_category" type="list" default="yes" label="Show Category" description="If you select yes , category name will be displayed under the job links">
+          <option value="yes">Show</option>
+          <option value="no">Hide</option>
+          </param>
+          <param name="show_country" type="list" default="yes" label="Show Country" description="If you select yes job location will be displayed under the job links">
+          <option value="yes">Show</option>
+          <option value="no">Hide</option>
+          </param>
+        <param name="count" type="text" default="5" label="Count" description="The number of items to display (default 5)" />
+        <param name="display_type" type="list" default="latest" label="Display Type" description="Display type">
+        	<option value="latest">Latest Jobs</option>
+        	<option value="random">Random Jobs</option>
+        </param>
+        <param name="catid" type="text" default="" label="Category ID" description="Selects jobs from a specific Category or set of Categories. Enter the Category ID from the Category Manager. To specify more than one Category, separate each ID with a comma." />
+	         <param name="show_user_type" type="list" default="show" label="User Type?" description="You can show the user type in profiles or not?">
+	          <option value="show">Show?</option>
+	          <option value="hide">Hide?</option>
+	         </param>
+	         <param name="show_tab_for" type="list" default="both" label="Show Tab For ..." description="You can show or disable the tab for one user type. For example, Selecting Employers means for this parameters, CB Jobs! tab will showed, If the owner of profile is Employer">
+	          <option value="both">Both User Type (Employer and Job Seeker)</option>
+	          <option value="employers">Employers</option>
+	          <option value="seekers">Seekers</option>
+	         </param>
+     	<param name="text" type="textarea" rows="15" cols="40" default="" label="Text" description="This text will be displayed before the job listings. You can write a note or insert somethink before jobs. It can be plain text or html codes. You can leave empty this to close this feature" />
+
+      </params>
+
+			<fields>
+			</fields>
+		</tab>
+    </tabs>   
+    <install>
+    	<queries>
+    	</queries>
+    </install>
+    <uninstall>
+        <queries>
+    	</queries>
+    </uninstall>       
+</cbinstall>

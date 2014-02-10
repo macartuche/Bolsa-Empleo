@@ -1,0 +1,43 @@
+<?php
+//Abrir conexion mysql al servidor
+$connection=mysql_connect ("localhost", "wutoloja_bolsa", "loja09wuto");
+if (!$connection) {
+  die('Not connected : ' . mysql_error());
+}
+//Seleccionamos la base de datos
+$db_selected = mysql_select_db("wutoloja_bolsaDB", $connection);
+if (!$db_selected) {
+  die ('Can\'t use db : ' . mysql_error());
+}
+//Seleccionamos la la tabla de la dase datos
+$query = "SELECT * FROM jos_jobs_companies WHERE 1";
+$result = mysql_query($query);
+if (!$result) {
+  die('Invalid query: ' . mysql_error());
+}
+while ($row = @mysql_fetch_assoc($result))
+{
+	echo"<div id='resultcompanies' style='margin:10px;'>";
+		echo"<div id='logocompanyregister'>";
+		echo "<img src=../../../../../images/stories/jobs/logos/".$row['thumb_img'].">";
+		echo"</div>";
+		echo" <div id='contentcompany' style='margin-left: 80px; margin-top:-60px;'>";
+       		echo"<h2 style='font-size: 12px;'>";
+           		echo"<label><strong>Empresa:</strong> </label>";
+				echo $row['title'];
+				echo "<br />";
+				echo"<label style='font-weight:100';><strong>Representante:</strong> </label>";
+				echo $row['contactname'];
+				echo"<br />";
+				echo"<label><strong>Sitio web:</strong> </label>";
+				echo "<a href='http://".$row['companyurl']."' target='_blank'>".$row['companyurl']."</a>";
+				echo"<br />";
+				echo"<label><strong>Descripción:</strong> </label>";
+				echo $row['description'];
+				echo"<br />";
+        	echo"</h2>";
+      	echo"</div>";
+	echo "</div>";
+	echo"<br />";
+}
+?>

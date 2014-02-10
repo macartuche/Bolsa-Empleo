@@ -1,0 +1,503 @@
+/*#
+* Mody_corporate - A Mambo 4.5.1 template
+* version 1.0
+* package mody_corporate
+* copyright (C)2004 by Mambodyssee - All rights reserved! Carefully read the Terms and Conditions published on our site:    * www.mambodyssee.com
+#*/
+
+
+/**
+ * General Body Styling
+ * --------------------
+ */
+ 
+body {
+	margin	     : 0px 0px 0px 0px;
+	color		     : #465675;
+	}
+
+td,tr,p,div {
+	font-family	     : Arial, Verdana, Helvetica, sans-serif;
+	font-size        : 11px;
+	color            : #000000;
+	}
+
+h4 {
+	color            : #FF9900; 
+	font-family      : Arial, Verdana, Helvetica, sans-serif;
+	font-size        : 14px; font-weight: bold;
+	}
+
+h5 {
+	color            : #FF9900; 
+	font-family      : Arial, Verdana, Helvetica, sans-serif;
+	font-size        : 13px; font-weight: bold;
+	}
+
+h6 {
+	color            : #FF9900; 
+	font-family      : Arial, Verdana, Helvetica, sans-serif;
+	font-size        : 12px; font-weight: bold;
+	}
+
+a:link, a:visited {
+	font-size        : 11px; 
+	color            : #23598d; 
+	text-decoration  : none;
+	font-family      :  Arial, Verdana, Helvetica, sans-serif;
+	}
+
+a:hover {
+	color            : #23598d;	
+      text-decoration  : underline;
+	}
+	
+ul {
+	margin           : 0px 0px 0px 0px;
+	}
+
+li {
+	list-style       : inside 3px;
+	}
+	
+
+
+/**
+ * General Mambo Styles
+ * --------------------
+  */
+
+hr { 
+	background       : transparent; 
+	height           : 1px; 
+	border           : 1px solid #314B77;
+	}
+
+hr.separator {
+	background       : transparent;
+	height           : 1px;
+	width            : 75px;
+	border           : 1px solid #314B77;
+}
+
+.pagenavbar 
+{ 
+	}
+
+.pagenav {
+	font-weight      : normal;
+}
+
+a.pagenav, a.pagenav:visited {
+	font-weight     : bold;
+	color           : #343A58;
+}
+
+a.pagenav:hover {
+	color           : #FF9900;
+}
+
+.small {
+	font-family   : Arial, Verdana, Helvetica, sans-serif;
+	font-size     : 10px;
+	color         : #343A58;
+	text-decoration: none;
+	font-weight   : normal;
+	}
+
+.smalldark {
+    font-family     : Arial, Verdana, Helvetica, sans-serif;
+    font-size       : 10px;
+    color           : #343A58;
+    text-decoration : none;
+    font-weight     : normal;
+    }
+
+
+
+
+
+/**
+ * Mambo Form Styles
+ * -----------------
+  */
+ 
+.button {
+	color        : #FFFFFF; 
+	font-family  : Arial, Verdana, Helvetica, sans-serif;
+	margin-top   : 4px;
+	font-weight  : normal;
+	text-align   : center;
+	font-size    : 12px;
+	background   : #94B1CF;
+	border       : 1px solid #000066;
+	height       : 20px;
+	}
+
+.inputbox {
+	font-family     : Arial, Verdana, Helvetica, sans-serif;
+	font-size       : 12px;
+	color           : #343A58;
+	background      : #FFFFFF;
+	border          : 1px solid;
+	}
+
+
+
+
+
+
+
+/**
+ * Mambo Menu Styling
+ * ------------
+ */
+
+
+.mainlevel {
+  font-family      : Verdana, Geneva, Arial, Helvetica, serif;
+  font-weight      : normal;
+  width            : 95%;
+  text-align       : left;
+  text-decoration  : none;
+  letter-spacing   : 2px;
+  padding          : 5px;
+  
+ }
+
+
+a.mainlevel:link, a.mainlevel:visited {
+	color        : #7492AB;
+	font-weight  : normal;
+	text-decoration:none;
+	text-align   : left;
+	}
+
+a.mainlevel:hover {
+      color            : #E5AC37;
+
+	}
+	
+a.sublevel:link, a.sublevel:visited {
+	font-family     : Arial, Verdana, Helvetica, sans-serif;
+	color           : #343A58; 
+	font-weight     : normal;
+}
+
+a.sublevel:hover {
+	color: #FFFFFF; 
+	text-decoration: none;
+	}
+
+
+
+
+
+/**
+ * Mambo General styling for Sections/Categories/Contents
+ * ------------------------------------------------------
+  */
+ 
+.createdate {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #343A58;
+	text-decoration: none;
+	font-weight: normal;
+	}
+
+.modifydate {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #343A58;
+	text-decoration: none;
+	font-weight: normal;
+	}
+
+a.readon:link, a.readon:visited {
+	color: #23598d; 
+	text-decoration: none; 
+	font-family:  Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	}
+
+a.readon:hover {
+	color: #23598d;	text-decoration: underline;
+	font-weight: normal;
+	font-family:  Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	}
+
+
+
+
+
+/** 
+ * Mambo Styling for Contents
+ * --------------------------
+ */
+ 
+.contentpane {
+		}
+
+.contentpaneopen {	
+		}
+
+.contentheading {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+ 	color: #FF9900;
+	text-align:left;
+	line-height: 16px;
+	height: 15px;
+	}
+
+.contentpagetitle {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+ 	color: #FF9900;
+	text-align:left;
+	}
+
+.contentdescription {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	text-align: left;
+	}
+
+table.contenttoc {
+	color: #343A58;
+	background-color: #e0e0e0;
+	border-top: 1px solid #465675;
+	border-bottom: 1px solid #465675;
+	border-left: 1px solid #465675;
+	border-right: 1px solid #465675;
+    }
+
+table.contenttoc td {
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-weight: normal;
+    text-align:left;
+	padding: 3px;
+}
+
+.content_rating {
+	font-weight: normal;
+	font-size: 8pt;
+}
+
+.content_vote {
+	font-weight: normal;
+	font-size: 8pt;
+}
+
+
+/**
+ * Mambo Sections Styles
+ * ---------------------
+  */
+
+.sectiontableheader {
+	background-color : #94B1CF;
+	background-repeat: repeat;
+	padding: 2px;
+	color : #FFFFFF;
+	font-weight : bold;
+	padding: 2px;
+	}
+
+.sectiontableentry1, {
+	background-color : #BED2EB;
+	}
+	
+.sectiontableentry2 {
+	background-color : #F3F3F3;
+	}
+
+
+
+
+
+/**
+ * Mambo Styles for Categories
+ * ---------------------------
+ */
+
+.category {
+	color: #3D4E6D; 
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px; 
+	font-weight: bold; 
+	text-decoration: none;
+	}
+
+a.category:link, a.category:visited {
+	color: #3D4E6D; font-weight: bold;
+	}
+
+a.category:hover {
+	color: #3D4E6D;
+	}
+
+
+
+
+/**
+ * Mambo Blog styling
+ * ------------------
+ */
+ 
+a.blogsection:link, a.blogsection:visited {
+	color: #44757D; 
+	text-decoration: none; 
+	font-family:  Arial, Verdana, Helvetica, sans-serif;
+	font-size: 10px;
+	}
+
+a.blogsection:hover {
+	color: #759328;	
+	text-decoration: underline;
+	font-size: 10px;
+	}
+
+
+
+
+/**
+ * Mambo Components Styles
+ * -----------------------
+  */
+
+
+.componentheading {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+ 	color: #FF9900;
+	text-align:left;
+	}
+
+
+/**
+ * Mambo Modules formatting
+ * ------------------------
+ */
+
+table.moduletable {
+	margin: 0px 0px 0px 0px;
+	width: 95%;
+	}
+
+table.moduletable th {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FF9900;
+	text-align: left;
+	}
+
+table.moduletable td {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	}
+	
+
+
+/**
+ * Mambo's Built-in Component's Syling
+ * -----------------------------------
+ */
+ 
+ 
+ /*  Polls  */
+ 
+.poll {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #343A58;
+	line-height: 14px
+	}
+
+.pollstableborder {
+	border: 1px solid #465675;
+}
+
+
+
+/*  Weblinks */
+
+a.weblinks:link, a.weblinks:visited {
+	color: #405115; text-decoration: none; font-weight: normal;
+	font-family:  Arial, Verdana, Helvetica, sans-serif;
+	}
+
+a.weblinks:hover {
+	color: #000099;	text-decoration: underline;
+	}
+	
+
+
+/*  Newsfeeds */
+
+.newsfeedheading {
+   font-family: Arial, Verdana, Helvetica, sans-serif;
+   font-size: 11px;
+   font-weight: bold;
+   color: #343A58;
+   }
+
+.newsfeeddate {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #343A58;
+	font-weight: normal;
+	}
+
+.fase4rdf {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px; 
+	color: #343A58; 
+	font-weight: normal;
+	}
+
+a.fase4rdf:link {
+	font-size: 11px; 
+	font-weight: bold; 
+	color: #356C82;
+	}
+
+a.fase4rdf:hover {
+	font-size: 11px;
+	font-weight: bold; color: #759328;
+	}
+
+
+/* Search page */
+
+
+table.searchintro {
+  	background-color: #FFFFFF;
+	border: 1px solid #8D9ABC;
+	}
+
+
+/*  Contact's table settings  */
+
+table.contact {
+	background-color: #FFFFFF;
+	}
+
+table.contact td.icons {
+	background-color: #CCCCCC;
+	}
+
+table.contact td.details {
+	background-color: #F3F3F3;
+	font-size: 11px;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	}

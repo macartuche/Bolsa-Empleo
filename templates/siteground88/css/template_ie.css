@@ -1,0 +1,25 @@
+#mod_login_remember  {
+	border:0;
+}
+a.mainlevel:link, a.mainlevel:visited {
+	margin: 0;
+	line-height: 9px;
+	padding: 0 0 0 12px;
+	font-weight: bold;
+	font-size: 11px;
+	background: url(../images/menu_row.jpg) center left no-repeat;
+}
+
+#search .search .inputbox {
+	line-height: 14px;
+	font-size: 12px;
+	color: #669900;
+	background: #F5F8EE;
+	margin:	0;
+	width: 90px;	
+	height:24px;
+	padding: 6px 0 0 6px;
+	border: 1px solid #B9D08A;
+	float: left;
+	text-transform: capitalize;
+}

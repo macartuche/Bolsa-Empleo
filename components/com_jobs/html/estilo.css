@@ -1,0 +1,164 @@
+
+#muestra{
+  overflow-y:scroll;
+  height: 500px;
+}
+
+body , html{
+      font: 12px/170% Tahoma;
+      background-color: #EAE9E1;
+      color:#4E4E4F; 
+    }
+
+    section{
+      background-color: #FFFFFF;
+    }
+
+    article{
+      padding:10px 10px 0px;
+    }
+
+    header{
+      background-color:#004370 !important; 
+    }
+
+    h3{
+      text-transform: uppercase;
+    }
+
+    h4{
+      color: #166793;  
+    }
+    hr{
+      background-color: #DCAA1A;
+      border: 1px solid #DCAA1A;
+      color: #DCAA1A; 
+      height: 2px;
+    }
+
+    ul{
+      margin: 0px;
+      padding: 0px;
+    }
+
+    label{
+      font-weight: bold;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    p{
+      display: inline-block;
+      margin:0px;
+    }
+
+    li{
+      list-style: none;
+    }
+
+    #logo{
+       display: inline-block;
+      height: 230px;
+      margin-top: 20px;
+      position: relative;
+      text-align: center;
+      vertical-align: top;
+      width: 20%;
+    }
+
+    #logo img{
+      border: 1px solid #004370;
+      padding: 5px;
+    }
+
+    #datosPersonales{
+      display: inline-block; 
+      position: relative;      
+      width: 60%;
+    }
+
+    #titulo h2{
+      text-align: center;
+      color:#004370;
+    }
+    #titulo h3{
+      text-align: center;
+    }
+    
+    #datosPersonales label{
+      width: 35%;
+    }
+
+    #datosPersonales p{ 
+      width: 60%; 
+    }
+
+    .educacion label{
+      width: 10%;
+    }
+
+    .educacion p{
+      width: 80%;
+    }
+
+   #empleos label{
+      width: 15%;
+    }
+
+   #empleos p{
+      width: 80%;
+    }
+
+   #referencias label{
+      width: 10%;
+    }
+
+   #referencias p{
+      width: 80%;
+    }
+
+    #discapacidad label{
+      width: 14%;
+    }
+
+   #discapacidad p{
+      width: 80%;
+    }
+
+
+
+
+
+    .educacion ul, #empleos ul, #datosPersonales ul, #referencias ul, #discapacidad ul{
+      padding-left: 10px;
+    }
+    .idioma{
+      width: 100%;
+    }
+    .titulo_idioma{
+       background-color: #34616D;
+      color: #FFFFFF;
+      font-weight: bold;
+      text-align: center;
+    }
+    .filas{
+      background-color: #FDE9D9;
+      text-align: center;
+    }
+    .filas :first-child{
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .separador{
+      clear: both;
+      height: 20px;
+    }
+
+    #caja_flotante {
+        right: 6%;
+        margin-left: 10px;
+        position: absolute;
+        top: 100px;
+        width: 64px;
+    }

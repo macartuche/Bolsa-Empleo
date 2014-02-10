@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="community">
+	<name>myjobs</name>
+	<author>InstantPhp</author>
+	<creationDate>10/02/2010</creationDate>
+	<copyright>Copyright (C) 2009. All rights reserved.</copyright>
+	<license></license>
+	<authorEmail>info@instantphp.com</authorEmail>
+	<authorUrl>http://www.instantphp.com</authorUrl>
+	<version>1.2.1</version>
+	<isapplication>true</isapplication>
+	<isbrowseable>true</isbrowseable>
+	<description>
+		displayes offers by a user from com_jobs
+	</description>
+	<languages>
+	    <language tag="en-GB">en-GB.plg_myjobs.ini</language>
+	</languages>
+	<files>
+		<file plugin="myjobs">myjobs.php</file>
+		<folder>myjobs</folder>
+	</files>
+	
+	<params>
+		<param name="coreapp" type="list" default="0" label="Core Application" description="Causes this application to not appear in the users applications list but it will allow this application to appear in the user profile automatically if selected.">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="limit" type="text" default="50" label="Limit" description="Limit the length of the content (default is 50)." />
+		<param name="count" type="text" default="10" label="Count" description="The number of comment to display (default is 10)" />
+		<param name="cats" type="text" default="" label="Categories" description="You can display categories froma a specific category. Write the category id with comma seperated like 25,36,65" />
+		<param name="introtext" type="list" default="0" label="Introtext" description="Select whether to display the description of job.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="cache" type="list" default="1" label="Caching" description="Select whether to cache the content of this plugin">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+        <param name="display_type" type="list" default="latest" label="Display Type" description="Display type">
+          <option value="latest">Latest Jobs</option>
+          <option value="random">Random Jobs</option>
+         </param>
+         <param name="show_user_type" type="list" default="show" label="User Type?" description="You can show the user type in profiles or not?">
+          <option value="show">Show?</option>
+          <option value="hide">Hide?</option>
+         </param>
+	</params>
+</install>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="user">
+	<name>lkncbjobsregister</name>
+	<author>Instant Php</author>
+	<authorEmail>info@instantphp.com</authorEmail>
+	<authorUrl>www.instantphp.com</authorUrl>
+	<copyright>Copyright (C) 2009 Instant Php</copyright>
+	<creationDate>21/02/2010</creationDate>
+	<copyright>(C) 2009 InstantPhp.com</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<version>1.2.1</version>
+	<description>NOTE: MAKE SURE THAT YOU ARE NOT USING VERSION 1.1 OF THIS PLUGIN. V1.1 WAS A SYSTEM PLUGIN. MAKE SURE YOU HAVE UNISTALLED OR YOU ARE NOT USING IT. This plugin helps you to register your users as job seeker or employer by community builder registration. please read read me.txt and blog post on instantphp.com</description>
+	<files>
+		<filename plugin="lkncbjobsregister">lkncbjobsregister.php</filename>
+	</files>
+	<params>
+		<param name="country" type="text" size="30" default="" label="Default Country ID" description="Enter the ID of the default country id for the company countries. This value will be used , if the user enters a company data. You can find the id under List Countries link on your Jobs! control panel. YOU NEED TO WRITE THE COUNTRY ID CORRECTLY. YOU HAVE BEEN WARNED FOR THIS" />
+		<param name="default_resume_title" type="text" size="30" default="Default Resume" label="Default Resume Title" description="Enter title for the default resume like Default Resume or Default or etc." />
+		<param name="default_resume_status" type="list" default="0" label="Default Resume Status" description="Select the status of the dfeault resume. The default one is Unpublished">
+			<option value="1">Published</option>
+			<option value="0">Unpublished</option>
+		</param>
+		<param name="default_resume_language" type="text" size="30" default="English" label="Default Resume Language" description="Enter language for the resumes like English or French." />
+	</params>
+</install>

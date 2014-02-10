@@ -1,0 +1,43 @@
+/* blue */
+#page_bg {
+	background: #0C1B38;
+	background-image:url(../images/nuevas/fondo-bg.jpg);
+	background-repeat:repeat-x;
+}
+
+div#wrapper {
+		/*background: #f7f7f7 url(../images/blue/mw_shadow_l.png) 0 0 repeat-y;*/
+}
+
+div#wrapper_r {
+/*	background: url(../images/blue/mw_shadow_r.png) 100% 0 repeat-y;*/
+}
+
+div#header {
+	background: url(../images/nuevas/cabecera.jpg) 0 0 repeat-x;
+}
+
+div#header_l {
+	/*background: url(../images/blue/mw_header_t_l.png) 0 0 no-repeat;*/
+}
+
+div#header_r {
+	/*background: url(../images/blue/mw_header_t_r.png) 100% 0 no-repeat;*/
+}
+div#footer_l {
+	/*background: url(../images/blue/mw_footer_b_l.png) 0 0 no-repeat;*/
+}
+
+div#footer_r {
+	/*background: url(../images/blue/mw_footer_b_r.png) 100% 0 no-repeat;*/
+	padding-top: 10px;
+	margin-top:-10px;
+	height: 50px;
+	overflow: hidden;
+	background:url(../images/pie-bg.gif) repeat;
+	-moz-border-radius-bottomleft:15px;
+	-moz-border-radius-bottomright:15px;
+	-webkit-border-bottom-left-radius:15px;
+	-webkit-border-bottom-right-radius:15px;
+	width: 100%;
+}

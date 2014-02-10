@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+  <name>jactive_corporate</name>
+  <creationDate>8.09.2005</creationDate>
+  <author>Joomlactive</author>
+  <copyright>(C) Copyright 2005 by Joomlactive. All rights reserved!</copyright>
+  <authorEmail>office@joomlactive.com</authorEmail>
+  <authorUrl>www.joomlactive.com</authorUrl>
+  <version>1.0</version>
+  <description> Beautiful template with that corporate and decent look that that every company should have. Fix width, nice blue overall color, it's  a "must have"! </description>
+  <files>
+    <filename>index.php</filename>
+    <filename>template_thumbnail.png</filename>
+  </files>
+  <images>
+    <filename>images/header.jpg</filename>
+    <filename>images/top.jpg</filename>
+    <filename>images/line.jpg</filename>
+    <filename>images/left.jpg</filename>
+    <filename>images/right.jpg</filename>
+    <filename>images/background.jpg</filename>
+  </images>
+  <css>
+    <filename>css/template_css.css</filename>
+  </css>
+</mosinstall>

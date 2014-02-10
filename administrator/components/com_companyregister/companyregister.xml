@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0" method="upgrade">
+    <name>companyregister</name>
+    <author>Oscar Llivigañay</author>
+    <creationDate>06/04/2011</creationDate>
+    <license>GNU/GPL</license>
+    <version>1.0</version>
+    <description>Empresas registradas de la bolsa de empleo-UTPL</description>
+
+    <!-- installation part -->
+    <install>
+        <queries>
+           
+        </queries>
+    </install>
+
+    <installfile>install.companyregister.php</installfile>
+    <uninstallfile>uninstall.companyregister.php</uninstallfile>
+
+    <!-- user part -->
+    <files folder="components/com_companyregister">
+        <filename>controller.php</filename>
+        <filename>index.html</filename>
+        <filename>router.php</filename>
+        <filename>companyregister.php</filename>
+        <folder>models</folder>
+        <folder>views</folder>
+    </files>
+
+    <languages folder="language/en-GB">
+        <language tag="en-GB">en-GB.com_companyregister.ini</language>
+    </languages>
+
+    <!-- administration part -->
+    <administration>
+
+    <menu task="default" img="js/ThemeOffice/component.png">companyregister</menu>
+    <submenu>
+        <menu link="option=com_companyregister">companyregister</menu>
+    </submenu>
+
+    <files>
+        <filename>companyregister.xml</filename>
+    </files>
+    <files folder="administrator/components/com_companyregister">
+        <filename>config.xml</filename>
+        <filename>controller.php</filename>
+        <filename>index.html</filename>
+        <filename>install.companyregister.php</filename>
+        <filename>companyregister.php</filename>
+        <filename>uninstall.companyregister.php</filename>
+        <folder>helpers</folder>
+        <folder>models</folder>
+        <folder>tables</folder>
+        <folder>views</folder>
+    </files>
+
+    <languages folder="administrator/language/en-GB">
+        <language tag="en-GB">en-GB.com_companyregister.menu.ini</language>
+        <language tag="en-GB">en-GB.com_companyregister.ini</language>
+    </languages>
+
+    </administration>
+
+    <params>
+
+    </params>
+
+</install>

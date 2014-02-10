@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+  <name>jactive_water</name>
+  <creationDate>September 9th 2005</creationDate>
+  <author>Joomlactive</author>
+  <copyright>(C) Copyright 2005 by Joomlactive. All rights reserved!</copyright>
+  <authorEmail>office@joomlactive.com</authorEmail>
+  <authorUrl>www.joomlactive.com</authorUrl>
+  <version>1.0</version>
+  <description> Great water theme template. Carefully chosen colors, alpha blend menu, "mounted" column, variable width. 
+This is inspired by a RejuviNET design template.</description>
+  <files>
+    <filename>index.php</filename>
+    <filename>template_thumbnail.png</filename>
+  </files>
+  <images>
+    <filename>images/fundalwater01.jpg</filename>
+    <filename>images/fundalwater03.jpg</filename>
+    <filename>images/fundalwater04.jpg</filename>
+    <filename>images/fundalwater05.jpg</filename>
+    <filename>images/fundalwater06.jpg</filename>
+    <filename>images/fundalwater07.jpg</filename>
+    <filename>images/fundalwater08.jpg</filename>
+    <filename>images/fundalwater09.jpg</filename>
+    <filename>images/fundalwater11.jpg</filename>
+    <filename>images/bottom02.jpg</filename>
+    <filename>images/btn-search.jpg</filename>
+    <filename>images/fundalcontinut.jpg</filename>
+    <filename>images/fundalmeniu.jpg</filename>
+    <filename>images/spacer.gif</filename>   
+  </images>
+  <css>
+    <filename>css/template_css.css</filename>
+  </css>
+</mosinstall>

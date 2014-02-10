@@ -1,0 +1,178 @@
+<!-- *******************************************************************
+// Title          jSecure Authentication (jSecure)
+// Description    jSecure Authentication extention prevents access to administration (back end) login page without appropriate access key.
+// Author         © 2007-2011 Ajay Lulia
+// License        This is free software and you may redistribute it under the GPL.
+//                jSecure authentication comes with absolutely no warranty.
+//                Use at your own risk. For details, see the license at
+//                http://www.gnu.org/licenses/gpl.txt
+//                Other licenses can be found in LICENSES folder.
+// ******************************************************************* -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> Readme </TITLE>
+  <style type="text/css">
+	ul {padding-left:10px;}
+
+  </style>
+ </HEAD>
+
+ <BODY>
+	<div style='width: 90%; text-align: left;'>
+		<p><b>Thank you for purchasing jSecure. If you have any questions please use our support forum at</b><a href="http://www.joomlaserviceprovider.com/component/kunena/5-jsecure-authentication.html">jSecure Forum</a></p>
+		<p><b>PLEASE NOTE! If you have jSecure 1.0 or an older version of jSecure 2.0 installed, you will need to remove it before installing this new version! (for details on how to do this please see below).</b></p>
+		<p>
+			<b>
+				How to install jSecure 2.1.x (no previous installation):
+			</b>
+			<ol>
+				<li>Log into the Joomla backend area.</li>
+				<li>Go to Extensions -> Install/Uninstall.</li>
+				<li>Install the jSecure.</li>
+			</ol>
+		</p>
+		<p><b>How to uninstall jSecure 1.0 (2 ways):</b></p>
+		<p><b>First way: Follow these steps to uninstall 1.0  jSecure from the Joomla administration area:</b></p>
+		<ol>
+			<li>Log into the Joomla backend area.</li>
+			<li>Go to Extensions -> Install/Uninstall.</li>
+			<li>Click on ‘Plugins’ tab.</li>
+			<li>Search with ‘jSecure’ and click on checkbox to uninstall.</li>
+			<li>Click on ‘uninstall’ button on top right side area to uninstall.</li>
+		</ol>
+		<p><b>Second way: Follow these steps to uninstall 1.0  jSecure by manually:</b></p>
+		<ol>
+			<li>Login to mysql through phpmyadmin or whatever you use to access database.</li>
+			<li>Search for "jsecure" with following SQL:
+				<ol type="a">
+					<li>Query: SELECT * FROM jos_plugins where element = 'jSecure'</li>
+					<li>Delete the row</li>
+				</ol>
+			</li>
+			<li>Remove following jSecure files:
+				<ol type="a">
+					<li>/plugins/system/jsecure.php</li>
+					<li>/plugins/system/jsecure.xml</li>
+				</ol>
+			</li>		
+		</ol>
+		<p><b>How to upgrade from an older version of 2.1.x (2 ways):</b></p>
+		<p>Currently we don’t have any automated upgrade process. You will need to uninstall old version and install new version. Please note you will need to uninstall the component AND the plugin.</p>
+		<p><b>First way: Follow these steps to uninstall 2.0 version from the Joomla administration area:</b></p>
+		<ol>
+			<li>Log into backend area.</li>
+			<li>Go to Extensions -> Install/Uninstall.</li>
+			<li>Click on ‘Components’ tab.</li>
+			<li>Search for ‘jSecure’ and click on checkbox to uninstall.</li>
+			<li>Click on ‘Uninstall’ button on top right side area to uninstall.</li>
+			<li>Go to Extensions -> Install/Uninstall.</li>
+			<li>Click on ‘Plugins’ tab</li>
+			<li>Search for ‘jSecure’ and click on checkbox to uninstall.</li>
+			<li>Click on ‘Uninstall’ button on top right side area to uninstall.</li>
+			<li>Now go to Extensions -> Install/Uninstall.</li>
+			<li>Install the new version.</li>
+		</ol>
+		<p>
+			<b>Second way: Following are steps to remove the jSecure 2.0 manually:</b>
+		</p>
+		<p>
+		<ol>
+		<li>Remove the components from /components/com_jsecure and administrator/components/com_jsecure</li> 
+		<li>Remove the plug-in from /plugins/system/jsecure.php and /plugins/system/jsecure.xml</li>
+		<li>Remove the jsecure folder from plug-ins. /plugins/system/jsecure</li>
+		<li>Delete the component and plug-in entry from database.
+			<ol type="a">
+			<li>Execute the following query using PHPMyadmin.
+				<ol type="i">
+					<li>DELETE FROM databasePrefix_components where option = ‘com_jsecure’</li>
+					<li>DELETE FROM databasePrefix_plugins where element = ‘jsecure’</li>
+				</ol>
+			</li>
+			</ol>
+		</li>
+		</li>
+		</ol>
+		</p>
+        <p><b>How to uninstall jSecure 2.1.8 Joomla 1.5 (2 ways):</b></p>
+		<p><b>First way: Follow these steps to uninstall 2.1.8 version from the Joomla administration area Joomla 1.5:</b></p>
+        <ol>
+        	<li>Log into backend area.</li>
+         	<li>Go to Extensions -> Install/Uninstall.</li>
+           	<li>Click on ‘Components’ tab.</li>
+           	<li>Search for ‘jSecure’ and click on checkbox to uninstall.</li>
+           	<li>Click on ‘Uninstall’ button on top right side area to uninstall.</li>
+           	<li>Go to Extensions -> Install/Uninstall.</li>
+           	<li>Click on ‘Plugins’ tab</li>
+           	<li>Search for ‘jSecure’ and click on checkbox to uninstall.</li>
+           	<li>Click on ‘Uninstall’ button on top right side area to uninstall.</li>
+        </ol>
+        <p><b>Second way: Following are steps to remove the jSecure 2.1.8 manually Joomla 1.5:</b></p>
+		<p><b>Delete the component and plug-in entry from database.</b></p>
+		<ol>
+        	<li>jos_jsecurelog (Delete Complete Table)</li>
+            <li>jos_components (Delete 5 fields)<br/>
+                 1. jSecure Authentication<br/>
+                 2. Basic Configuration<br/>
+                 3. Advanced Configuration<br/>
+                 4. View Log<br/>
+                 5. Help</li>
+			<li>jos_plugins (Delete 1 field)<br/>
+			System - jsecure</li>
+        </ol>    
+<p><b>Delete the below mentioned folders & files.</b></p>
+<ol>
+<li>\administrator\components\com_jsecure</li>
+<li>\administrator\language\en-GB<br/>
+ 	en-GB.com_jsecure.ini<br/>
+ 	en-GB.plg_system_jsecure.ini</li>
+<li>\components\com_jsecure</li>
+<li>\plugins\system\jsecure<br/>
+   \plugins\system\jsecure.php<br/>
+   \plugins\system\jsecure.xml
+</li>
+</ol>
+	<p><b>How to uninstall jSecure 2.1.9 Joomla 1.6 (2 ways):</b></p>
+	<p><b>First way: Follow these steps to uninstall 2.1.9 version from the Joomla administration area Joomla 1.6:</b></p>
+	<ol>
+	<li>Log into backend area.</li>
+   	<li>Go to Extensions -> Extension Manager.</li>
+   	<li>Click on ‘Manage’ tab.</li>
+   	<li>Select 'component' from  - Select Type - drop down box</li>
+   	<li>Search for ‘jSecure’ and click on checkbox to uninstall.</li>
+   	<li>Click on ‘Uninstall’ button on top right side area to uninstall.</li>
+   	<li>Go to Extensions -> Install/Uninstall.</li>
+   	<li>Select 'Plugin' from  - Select Type - drop down box</li>
+   	<li>Search for ‘jSecure’ and click on checkbox to uninstall.</li>
+   	<li>Click on ‘Uninstall’ button on top right side area to uninstall.</li>
+	</ol>
+    <p><b>Second way: Following are steps to remove the jSecure 2.1.9 manually Joomla 1.6:</b></p>
+	<p><b>Delete the component and plug-in entry from database.</b></p>
+    <ol>
+    	<li>jos_jsecurelog</li>
+        <li>jos_assets<br/>
+        com_jsecure - jsecure</li>
+        <li>jos_extensions<br/>
+        System - jsecure - plugin<br/>
+        jsecure - component</li>
+        <li>jos_menu<br/>
+        COM_JSECURE_AUTHENTICATION<br/>
+        BASIC_CONFIGURATION<br/>
+        ADVANCED_CONFIGURATION<br/>
+        VIEW_LOG<br/>
+        HELP</li>
+    </ol>
+    <p><b>Delete the below mentioned folders & files.</b></p>
+	<ol>
+    <li>\administrator\components\com_jsecure</li>
+	<li>\administrator\language\en-GB<br/>
+	en-GB.com_jsecure.ini,<br/>
+	en-GB.com_jsecure.sys.ini,<br/>
+	en-GB.plg_system_jsecure.ini</li>
+	<li>\components\com_jsecure</li>
+	<li>\plugins\system\jsecure</li>
+    </ol>
+	</div>
+ </BODY>
+</HTML>

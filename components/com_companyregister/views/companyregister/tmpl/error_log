@@ -1,0 +1,2 @@
+[06-Apr-2011 11:27:26] PHP Parse error:  syntax error, unexpected '.' in /home/wutoloja/public_html/bolsaempleo/components/com_companyregister/views/companyregister/tmpl/sql.php on line 22
+[06-Apr-2011 11:28:01] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ',' or ';' in /home/wutoloja/public_html/bolsaempleo/components/com_companyregister/views/companyregister/tmpl/sql.php on line 22

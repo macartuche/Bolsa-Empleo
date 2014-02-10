@@ -1,0 +1,10 @@
+[07-Jul-2010 19:04:36] PHP Parse error:  syntax error, unexpected ';' in /home/wutoloja/public_html/bolsaempleo/temporal/script.php on line 18
+[07-Jul-2010 19:06:54] PHP Fatal error:  Call to undefined function mysqli_affected_rows() in /home/wutoloja/public_html/bolsaempleo/temporal/script.php on line 16
+[07-Jul-2010 19:07:04] PHP Fatal error:  Call to undefined function mysqli_affected_rows() in /home/wutoloja/public_html/bolsaempleo/temporal/script.php on line 16
+[07-Jul-2010 19:07:13] PHP Fatal error:  Call to undefined function mysqli_affected_rows() in /home/wutoloja/public_html/bolsaempleo/temporal/script.php on line 17
+[07-Jul-2010 19:07:15] PHP Fatal error:  Call to undefined function mysqli_affected_rows() in /home/wutoloja/public_html/bolsaempleo/temporal/script.php on line 17
+[07-Jul-2010 19:07:25] PHP Fatal error:  Call to undefined function mysqli_affected_rows() in /home/wutoloja/public_html/bolsaempleo/temporal/script.php on line 18
+[07-Jul-2010 19:07:32] PHP Fatal error:  Call to undefined function mysqli_affected_rows() in /home/wutoloja/public_html/bolsaempleo/temporal/script.php on line 18
+[07-Jul-2010 19:07:38] PHP Fatal error:  Call to undefined function mysqli_affected_rows() in /home/wutoloja/public_html/bolsaempleo/temporal/script.php on line 18
+[07-Jul-2010 19:07:52] PHP Fatal error:  Call to undefined function mysqli_affected_rows() in /home/wutoloja/public_html/bolsaempleo/temporal/script.php on line 18
+[07-Jul-2010 19:08:19] PHP Fatal error:  Call to undefined function mysqli_affected_rows() in /home/wutoloja/public_html/bolsaempleo/temporal/script.php on line 18

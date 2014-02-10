@@ -1,0 +1,76 @@
+<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php
+//Abrir conexion mysql al servidor
+$connection=mysql_connect ("localhost", "wutoloja_bolsa", "loja09wuto");
+if (!$connection) {
+die('Not connected : ' . mysql_error());
+}
+//Seleccionamos la base de datos
+$db_selected = mysql_select_db("wutoloja_bolsaDB", $connection);
+if (!$db_selected) {
+die ('Can\'t use db : ' . mysql_error());
+}
+//Seleccionamos la la tabla de la dase datos
+$query = "SELECT * FROM jos_jobs_companies WHERE 1";
+$result = mysql_query($query);
+if (!$result) {
+die('Invalid query: ' . mysql_error());
+}
+?>
+<link rel="stylesheet" href="<?php echo JURI::base(); ?>components/com_jobs/templates/default/default.css" type="text/css" />
+<body>
+<br />
+<div id="linkredirectresume">
+		<a href="/index.php?option=com_jobs&Itemid=6" id="titletopfrontal" />
+			<img title="Regresar a herramientas del empleador" src="<?php echo JURI::base(); ?>components/com_jobs/templates/default/images/atras.png"/>
+            <?php echo Atrás;?>
+		</a>
+	</div>
+<br /><br />
+<table cellspacing="0" border="0" style="border-collapse: separate" id="tools_employees">
+	<thead>
+		<tr>
+			<th colspan="5">
+          		<strong>Empresas registradas</strong>
+          	</th>
+		</tr>
+	</thead>
+    <tbody>
+    <tr>
+    <?php
+		$contaux = 1;
+		while ($row = @mysql_fetch_assoc($result))
+		{
+			 if ($contaux > 2) 
+			 {
+  				echo "</tr><tr>";
+  				$contaux = 1;
+ 				}
+				echo "<td class='textresult' width='50%'>";
+				echo "<div id='imgfrontcompanydefault'>";
+				echo "<img src=/images/stories/jobs/logos/".$row['logo'].">";
+				echo "</div>";
+				echo "<div>";
+				echo "<label><strong>Empresa:</strong> </label>";
+				echo $row['title'];
+				echo "<br />";
+				echo "<label><strong>Representante:</strong> </label>";
+				echo $row['contactname'];
+				echo "<br />";
+				echo "<label><strong>Sitio web:</strong> </label>";
+				echo "<a href='".$row['companyurl']."' target='_blank'>".$row['companyurl']."</a>";
+				echo "<br />";
+				echo "<label><strong>Descripción:</strong> </label>";
+				echo $row['description'];
+				echo "</div>";
+				echo "<br />";
+				echo "</td>";
+				$contaux++;
+		}
+		?>
+        </tr>
+  	</tbody>
+</table>
+<br /><br /><br /><br />
+</body>
+</html>
