@@ -241,7 +241,7 @@ if ( ! ( defined( '_JEXEC' ) || defined( '_VALID_MOS' ) ) ) { die( 'Direct Acces
 			 * COLOCAR LA OPCION DE IMPRIMIR DENTRO DEL HTML
 			 **/
 			function imprimirCVHTML(idCV){
-			 		
+			 	//comentario	
 				window.open('components/com_jobs/html/datosdbcvHTML.php?cid='+idCV , 'ventana2' , 'width=800,height=500,scrollbars=si');
 			} 
         </script>
